@@ -10,22 +10,27 @@ function renderLicenseLink(license) {}
 // If there is no license, return an empty string
 function renderLicenseSection(license) {}
 
-function builtWith(languages) {
-
+function generateContribution(contribution) {
+  if (!contribution) {
+    return "";
+  }
+  return `## How To Contribute
+${contribution}`;
 }
 
 // TODO: Create a function to generate markdown for README
-function generateMarkdown(data) {
-  const { title, description, languages, link } = data;
+function generateMarkdown(readMeData) {
+  const { title, description, languages, link, contribution } = readMeData;
   return `# ${title}
-  
+
 ## Purpose
 ${description}
 
-## Built With
-
 ## Github Repo
 ${link}
+
+${generateContribution(contribution)}
+
 `;
 }
 

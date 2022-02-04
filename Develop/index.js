@@ -20,6 +20,19 @@ const questions = [
   },
   {
     type: "input",
+    name: "link",
+    message: "Enter the GitHub link to your project. (Required)",
+    validate: (nameInput) => {
+      if (nameInput) {
+        return true;
+      } else {
+        console.log("Please enter your name!");
+        return false;
+      }
+    },
+  },
+  {
+    type: "input",
     name: "description",
     message:
       "Please describe your project? What is it about? Why did you make it? And how was it made? (Required)",
@@ -27,7 +40,7 @@ const questions = [
       if (descriptionInput) {
         return true;
       } else {
-        console.log("lease enter a basic description for your project!");
+        console.log("Please enter a basic description for your project!");
         return false;
       }
     },
@@ -47,14 +60,19 @@ const questions = [
     ],
   },
   {
+    type: "confirm",
+    name: "confirmContribution",
+    message: "Would you like to add how to contribute to the project?",
+    default: true,
+  },
+  {
     type: "input",
-    name: "link",
-    message: "Enter the GitHub link to your project. (Required)",
-    validate: (nameInput) => {
-      if (nameInput) {
+    name: "contribution",
+    message: "Please describe how to contribute to the porject",
+    when: ({ confirmContribution }) => {
+      if (confirmContribution) {
         return true;
       } else {
-        console.log("Please enter your name!");
         return false;
       }
     },
@@ -62,9 +80,9 @@ const questions = [
 ];
 
 // TODO: Create a function to write README file
-const writeToFile = (readMeData) => {
+const writeToFile = (READMEmd) => {
   return new Promise((resolve, reject) => {
-    fs.writeFile("./README.md", readMeData, (err) => {
+    fs.writeFile("./README.md", READMEmd, (err) => {
       if (err) {
         reject(err);
         return;
@@ -81,13 +99,13 @@ const writeToFile = (readMeData) => {
 const init = () => inquirer.prompt(questions);
 
 // Function call to initialize app
-init(questions)
-  .then((data) => {
-    return generateMarkdown(data);
-  })
+init()
   .then((readMeData) => {
-    console.log(readMeData);
-    return writeToFile(readMeData);
+    return generateMarkdown(readMeData);
+  })
+  .then((READMEmd) => {
+    console.log(READMEmd);
+    return writeToFile(READMEmd);
   })
   .catch((err) => {
     throw err;
