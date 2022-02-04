@@ -200,7 +200,7 @@ const questions = [
 // TODO: Create a function to write README file
 const writeToFile = (READMEmd) => {
   return new Promise((resolve, reject) => {
-    fs.writeFile("./README.md", READMEmd, (err) => {
+    fs.writeFile("../README.md", READMEmd, (err) => {
       if (err) {
         reject(err);
         return;

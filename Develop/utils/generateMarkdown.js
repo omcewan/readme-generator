@@ -35,7 +35,7 @@ ${contribution}`;
     }
     return `
 ## Table of Contents
- * ${tableOfContents.join("\n * ")}`;
+ * ${tableOfContents.map(element => `[${element}](#${element})`).join("\n * ")}`;
   },
   installation(installation) {
     if (!installation) {
@@ -82,7 +82,6 @@ function generateMarkdown(readMeData) {
     usage,
     license,
     contribution,
-    questions,
     githubUsername,
     email,
   } = readMeData;
@@ -97,8 +96,8 @@ ${optionalSections.usage(usage)}
 ${optionalSections.license(license)}
 ${optionalSections.contribution(contribution)}
 
-For additional information about the project, please find it at the following [Github Page](www.github.com/${githubUsername}).
-Also if you have additional questions please contact me at [email](${email}).
+For additional information about the project, please find it at the following www.github.com/${githubUsername}.
+Also if you have additional questions please contact me at ${email}.
 `;
 }
 
