@@ -63,7 +63,7 @@ const questions = [
     type: "confirm",
     name: "confirmContribution",
     message: "Would you like to add how to contribute to the project?",
-    default: true,
+    default: false,
   },
   {
     type: "input",

@@ -18,6 +18,15 @@ function generateContribution(contribution) {
 ${contribution}`;
 }
 
+function generateLanguages(languages) {
+  if (!languages) {
+    return "";
+  }
+  return `## Built With
+ * ${languages.join("\n * ")}
+`
+}
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(readMeData) {
   const { title, description, languages, link, contribution } = readMeData;
@@ -28,6 +37,8 @@ ${description}
 
 ## Github Repo
 ${link}
+
+${generateLanguages(languages)}
 
 ${generateContribution(contribution)}
 
