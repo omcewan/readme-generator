@@ -8,34 +8,66 @@ const questions = [
   {
     type: "input",
     name: "title",
-    message: "What is the name of your project/application?(Required)",
+    message: "What is the name of your application?(Required)",
     validate: (projectName) => {
       if (projectName) {
         return true;
       } else {
         console.log(
-          "Please enter a name for your project/application!(Required)"
+          "Please enter a name for your application!(Required)"
         );
         return false;
       }
     },
   },
+
+  {
+    type: "confirm",
+    name: "confirmTableOfContents",
+    message: "Would you like to include a Table of Contents?",
+    default: false,
+  },
+
+  {
+    type: "checkbox",
+    name: "tableOfContents",
+    message:
+      "Choose what sections you would like to add to the Table of Contents",
+    choices: [
+      "Description",
+      "Installation",
+      "Usage",
+      "Contribution",
+      "Tests",
+      "License",
+      "Questions",
+    ],
+    when: ({ confirmTableOfContents }) => {
+      if (confirmTableOfContents) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+
   {
     type: "input",
     name: "description",
     message:
-      "Please briefly describe your project/application? What is it about? Why did you make it? And how was it made? (Required)",
+      "Please briefly describe your application? What is it about? Why did you make it? (Required)",
     validate: (descriptionInput) => {
       if (descriptionInput) {
         return true;
       } else {
         console.log(
-          "Please enter a basic description for your project/application!"
+          "Please enter a basic description for your application!"
         );
         return false;
       }
     },
   },
+
   {
     type: "confirm",
     name: "confirmTech",
@@ -43,10 +75,11 @@ const questions = [
       "Would you like to include technologies used to build the application?",
     default: false,
   },
+
   {
     type: "checkbox",
     name: "languages",
-    message: "What did you build this project with? (Check all that apply)",
+    message: "What did you use to build this application? (Check all that apply)",
     choices: [
       "JavaScript",
       "HTML",
@@ -64,33 +97,7 @@ const questions = [
       }
     },
   },
-  {
-    type: "confirm",
-    name: "confirmTableOfContents",
-    message: "Would you like to include a Table of Contents?",
-    default: false,
-  },
-  {
-    type: "checkbox",
-    name: "tableOfContents",
-    message:
-      "Choose what sections you would like to add to the Table of Contents",
-    choices: [
-      "Installation",
-      "Usage",
-      "License",
-      "Contribution",
-      "Tests",
-      "Questions",
-    ],
-    when: ({ confirmTableOfContents }) => {
-      if (confirmTableOfContents) {
-        return true;
-      } else {
-        return false;
-      }
-    },
-  },
+
   {
     type: "confirm",
     name: "confirmInstallation",
@@ -98,6 +105,7 @@ const questions = [
       "Would you like to add how to install the application? If you chose to add a Table of Contents with an Installation Section, please add how to install the application!",
     default: false,
   },
+
   {
     type: "input",
     name: "installation",
@@ -110,13 +118,15 @@ const questions = [
       }
     },
   },
+
   {
     type: "confirm",
     name: "confirmUsage",
     message:
-      "Would you like to add how to use the application? If you chose to add a Table of Contents with an Usage Section, please add how to use the project!",
+      "Would you like to add how to use the application? If you chose to add a Table of Contents with an Usage Section, please add how to use the application!",
     default: false,
   },
+
   {
     type: "input",
     name: "usage",
@@ -129,13 +139,36 @@ const questions = [
       }
     },
   },
+
   {
     type: "confirm",
-    name: "confirmLicense",
+    name: "confirmContribution",
     message:
-      "Would you like to add a license to the project/application? If you chose to add a Table of Contents with a license Section, please add a license to the project!",
+      "Would you like to add how to contribute to the application? If you chose to add a Table of Contents with a Contribution Section, please add how to contribute the application!",
     default: false,
   },
+
+  {
+    type: "input",
+    name: "contribution",
+    message: "Please describe how to contribute to the application",
+    when: ({ confirmContribution }) => {
+      if (confirmContribution) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+
+  {
+    type: "confirm",
+    name: "confirmTests",
+    message:
+      "Would you like to add what tests were done on the application? If you chose to add a Table of Contents with a Tests Section, please describe the Tests!",
+    default: false,
+  },
+
   {
     type: "checkbox",
     name: "license",
@@ -152,23 +185,26 @@ const questions = [
 
   {
     type: "confirm",
-    name: "confirmContribution",
+    name: "confirmLicense",
     message:
-      "Would you like to add how to contribute to the project/application? If you chose to add a Table of Contents with a Contribution Section, please add how to contribute the project!",
+      "Would you like to add a license to the project/application? If you chose to add a Table of Contents with a license Section, please add a license to the project!",
     default: false,
   },
+
   {
-    type: "input",
-    name: "contribution",
-    message: "Please describe how to contribute to the porject",
-    when: ({ confirmContribution }) => {
-      if (confirmContribution) {
+    type: "checkbox",
+    name: "license",
+    message: "Please choose a license for the porject",
+    choices: [],
+    when: ({ confirmLicense }) => {
+      if (confirmLicense) {
         return true;
       } else {
         return false;
       }
     },
   },
+
   {
     type: "input",
     name: "githubUsername",
@@ -182,6 +218,7 @@ const questions = [
       }
     },
   },
+
   {
     type: "input",
     name: "email",

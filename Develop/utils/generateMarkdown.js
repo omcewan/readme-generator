@@ -16,6 +16,8 @@ let optionalSections = {
       return `
 ## How To Contribute
 ${contribution}`;
+    } else {
+      return ''
     }
   },
 
@@ -24,6 +26,8 @@ ${contribution}`;
       return `
 ## Built With
  * ${languages.join("\n * ")}`;
+    } else {
+      return ''
     }
   },
 
@@ -34,6 +38,8 @@ ${contribution}`;
  * ${tableOfContents
    .map((element) => `[${element}](#${element})`)
    .join("\n * ")}`;
+    } else {
+      return ''
     }
   },
 
@@ -42,6 +48,8 @@ ${contribution}`;
       return `
 ## Installation
 ${installation}`;
+    } else {
+      return ''
     }
   },
 
@@ -50,6 +58,8 @@ ${installation}`;
       return `
 ## Usage
 ${usage}`;
+    } else {
+      return ''
     }
   },
 
@@ -58,6 +68,8 @@ ${usage}`;
       return `
 ## License
 ${license}`;
+    } else {
+      return ''
     }
   },
 
@@ -66,6 +78,8 @@ ${license}`;
       return `
 ## Contribution
 ${contribution}`;
+    } else {
+      return ''
     }
   },
 };
@@ -74,26 +88,26 @@ ${contribution}`;
 function generateMarkdown(readMeData) {
   const {
     title,
+    tableOfContents,
     description,
     languages,
-    tableOfContents,
     installation,
     usage,
-    license,
     contribution,
+    license,
     githubUsername,
     email,
   } = readMeData;
   return `# ${title}
+${optionalSections.table(tableOfContents)}
 
 ## Description
 ${description}
 ${optionalSections.languages(languages)}
-${optionalSections.table(tableOfContents)}
 ${optionalSections.installation(installation)}
 ${optionalSections.usage(usage)}
-${optionalSections.license(license)}
 ${optionalSections.contribution(contribution)}
+${optionalSections.license(license)}
 
 ## Questions
 For additional information about the project, please find it at the following www.github.com/${githubUsername}.
