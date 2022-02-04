@@ -12,62 +12,61 @@ function renderLicenseSection(license) {}
 
 let optionalSections = {
   contribution(contribution) {
-    if (!contribution) {
-      return "";
-    }
-    return `
+    if (contribution) {
+      return `
 ## How To Contribute
 ${contribution}`;
+    }
   },
 
   languages(languages) {
-    if (!languages) {
-      return "";
-    }
-    return `
+    if (languages) {
+      return `
 ## Built With
  * ${languages.join("\n * ")}`;
+    }
   },
 
   table(tableOfContents) {
-    if (!tableOfContents) {
-      return "";
-    }
-    return `
+    if (tableOfContents) {
+      return `
 ## Table of Contents
- * ${tableOfContents.map(element => `[${element}](#${element})`).join("\n * ")}`;
-  },
-  installation(installation) {
-    if (!installation) {
-      return "";
+ * ${tableOfContents
+   .map((element) => `[${element}](#${element})`)
+   .join("\n * ")}`;
     }
-    return `
+  },
+
+  installation(installation) {
+    if (installation) {
+      return `
 ## Installation
 ${installation}`;
-  },
-  usage(usage) {
-    if (!usage) {
-      return "";
     }
-    return `
+  },
+
+  usage(usage) {
+    if (usage) {
+      return `
 ## Usage
 ${usage}`;
-  },
-  license(license) {
-    if (!license) {
-      return "";
     }
-    return `
+  },
+
+  license(license) {
+    if (license) {
+      return `
 ## License
 ${license}`;
-  },
-  contribution(contribution) {
-    if (!contribution) {
-      return "";
     }
-    return `
+  },
+
+  contribution(contribution) {
+    if (contribution) {
+      return `
 ## Contribution
 ${contribution}`;
+    }
   },
 };
 
@@ -96,6 +95,7 @@ ${optionalSections.usage(usage)}
 ${optionalSections.license(license)}
 ${optionalSections.contribution(contribution)}
 
+## Questions
 For additional information about the project, please find it at the following www.github.com/${githubUsername}.
 Also if you have additional questions please contact me at ${email}.
 `;

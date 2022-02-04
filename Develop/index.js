@@ -79,7 +79,7 @@ const questions = [
       "Installation",
       "Usage",
       "License",
-      "Contributing",
+      "Contribution",
       "Tests",
       "Questions",
     ],
