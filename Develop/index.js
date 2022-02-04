@@ -100,6 +100,27 @@ const questions = [
 
   {
     type: "confirm",
+    name: "confirmImage",
+    message:
+      "Would you like to include an image of the application?",
+    default: false, 
+  },
+
+  {
+    type: "input",
+    name: "screenshot",
+    message: "Please enter the relative path to the image",
+    when: ({ confirmImage }) => {
+      if (confirmImage) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+
+  {
+    type: "confirm",
     name: "confirmInstallation",
     message:
       "Would you like to add how to install the application? If you chose to add a Table of Contents with an Installation Section, please add how to install the application!",

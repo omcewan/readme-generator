@@ -82,6 +82,14 @@ ${contribution}`;
       return ''
     }
   },
+
+  screenshot(screenshot) {
+    if (screenshot) {
+      return `
+## ScreenShot
+![This is a screenshot](${screenshot})`
+    }
+  }
 };
 
 // TODO: Create a function to generate markdown for README
@@ -91,6 +99,7 @@ function generateMarkdown(readMeData) {
     tableOfContents,
     description,
     languages,
+    screenshot,
     installation,
     usage,
     contribution,
@@ -104,6 +113,7 @@ ${optionalSections.table(tableOfContents)}
 ## Description
 ${description}
 ${optionalSections.languages(languages)}
+${optionalSections.screenshot(screenshot)}
 ${optionalSections.installation(installation)}
 ${optionalSections.usage(usage)}
 ${optionalSections.contribution(contribution)}
