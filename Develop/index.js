@@ -8,25 +8,14 @@ const questions = [
   {
     type: "input",
     name: "title",
-    message: "What is the name of your project? (Required)",
+    message: "What is the name of your project/application?(Required)",
     validate: (projectName) => {
       if (projectName) {
         return true;
       } else {
-        console.log("Please enter a name for your project!");
-        return false;
-      }
-    },
-  },
-  {
-    type: "input",
-    name: "link",
-    message: "Enter the GitHub link to your project. (Required)",
-    validate: (nameInput) => {
-      if (nameInput) {
-        return true;
-      } else {
-        console.log("Please enter your name!");
+        console.log(
+          "Please enter a name for your project/application!(Required)"
+        );
         return false;
       }
     },
@@ -35,15 +24,24 @@ const questions = [
     type: "input",
     name: "description",
     message:
-      "Please describe your project? What is it about? Why did you make it? And how was it made? (Required)",
+      "Please briefly describe your project/application? What is it about? Why did you make it? And how was it made? (Required)",
     validate: (descriptionInput) => {
       if (descriptionInput) {
         return true;
       } else {
-        console.log("Please enter a basic description for your project!");
+        console.log(
+          "Please enter a basic description for your project/application!"
+        );
         return false;
       }
     },
+  },
+  {
+    type: "confirm",
+    name: "confirmTech",
+    message:
+      "Would you like to include technologies used to build the application?",
+    default: false,
   },
   {
     type: "checkbox",
@@ -58,11 +56,105 @@ const questions = [
       "Bootstrap",
       "Node",
     ],
+    when: ({ confirmTech }) => {
+      if (confirmTech) {
+        return true;
+      } else {
+        return false;
+      }
+    },
   },
   {
     type: "confirm",
+    name: "confirmTableOfContents",
+    message: "Would you like to include a Table of Contents?",
+    default: false,
+  },
+  {
+    type: "checkbox",
+    name: "tableOfContents",
+    message:
+      "Choose what sections you would like to add to the Table of Contents",
+    choices: [
+      "Installation",
+      "Usage",
+      "License",
+      "Contributing",
+      "Tests",
+      "Questions",
+    ],
+    when: ({ confirmTableOfContents }) => {
+      if (confirmTableOfContents) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+  {
+    type: "confirm",
+    name: "confirmInstallation",
+    message:
+      "Would you like to add how to install the application? If you chose to add a Table of Contents with an Installation Section, please add how to install the application!",
+    default: false,
+  },
+  {
+    type: "input",
+    name: "installation",
+    message: "Please enter a desccription of how to install the application",
+    when: ({ confirmInstallation }) => {
+      if (confirmInstallation) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+  {
+    type: "confirm",
+    name: "confirmUsage",
+    message:
+      "Would you like to add how to use the application? If you chose to add a Table of Contents with an Usage Section, please add how to use the project!",
+    default: false,
+  },
+  {
+    type: "input",
+    name: "usage",
+    message: "Please enter a desccription of how to use the application",
+    when: ({ confirmUsage }) => {
+      if (confirmUsage) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+  {
+    type: "confirm",
+    name: "confirmLicense",
+    message:
+      "Would you like to add a license to the project/application? If you chose to add a Table of Contents with a license Section, please add a license to the project!",
+    default: false,
+  },
+  {
+    type: "checkbox",
+    name: "license",
+    message: "Please choose a license for the porject",
+    choices: [],
+    when: ({ confirmLicense }) => {
+      if (confirmLicense) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+  },
+
+  {
+    type: "confirm",
     name: "confirmContribution",
-    message: "Would you like to add how to contribute to the project?",
+    message:
+      "Would you like to add how to contribute to the project/application? If you chose to add a Table of Contents with a Contribution Section, please add how to contribute the project!",
     default: false,
   },
   {
@@ -73,6 +165,32 @@ const questions = [
       if (confirmContribution) {
         return true;
       } else {
+        return false;
+      }
+    },
+  },
+  {
+    type: "input",
+    name: "githubUsername",
+    message: "Please enter your github username.(Required)",
+    validate: (githubUsername) => {
+      if (githubUsername) {
+        return true;
+      } else {
+        console.log("Please enter your github username!");
+        return false;
+      }
+    },
+  },
+  {
+    type: "input",
+    name: "email",
+    message: "Please enter your email address!(Required)",
+    validate: (email) => {
+      if (email) {
+        return true;
+      } else {
+        console.log("Please enter your email address!");
         return false;
       }
     },
