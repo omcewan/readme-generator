@@ -187,10 +187,9 @@ const questions = [
   },
 
   {
-    type: "checkbox",
+    type: "input",
     name: "tests",
-    message: "Please choose a license for the porject",
-    choices: [],
+    message: "Please describe what tests were done when building this application",
     when: ({ confirmTests }) => {
       if (confirmTests) {
         return true;

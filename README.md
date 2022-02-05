@@ -1,5 +1,5 @@
 # Professional README Generator
-![License](https://img.shields.io/badge/license-Apache%20License%202.0-brightgreen)
+https://img.shields.io/badge/license-Apache%20License%202.0-brightgreen
 
 ## Table of Contents
  * [Description](#Description)
@@ -11,7 +11,7 @@
  * [Questions](#Questions)
 
 ## Description
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+This application is a professional README.md generator that is used to generate a README.md file for your projects and thus allowing you to focus on the more important thing, bringing your application to life. It is simple, straight forward and easy to use. 
 
 ## Built With
  * JavaScript
@@ -19,13 +19,16 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 
 ## Installation
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+To install this application, clone or download the files from the https://github.com/omcewan/readme-generator repository. Here you will find all the files that are needed to run this application. You will need to have node.js installed on you system as this application was built using node.js and uses node to run and generate the README file.
 
 ## Usage
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+To use this application you will “cd” into the directory where the index.js you downloaded is located, as part of the files from the application repository, and on the command line you will run “node index.js” or “node index” to initiate the application. You will be prompted with questions which will assist with the contents that you want to have input into the README file. Once you have answered all the questions the application will generate a README.md file with the information that you input from the questions asked. 
 
 ## Contribution
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+To contribute to this application please for the application from the GitHub repository above, where you can work on the changes you would like to implement and then submit a pull request. 
+
+## Tests
+No test were done in the process of making this application. Please check back in the future for any tests that will be implemented. )
 
 ## License
 This application is covered under the Apache License 2.0.
@@ -33,4 +36,4 @@ For more details about licensing, use this link: https://choosealicense.com/lice
 
 ## Questions
 For additional information about the project, please find it at the following www.github.com/omcewan.
-Also if you have additional questions please contact me at omcewan18@gmail.com.
+Also if you have additional questions please contact me at orlandomcewan231@gmail.com.
