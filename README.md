@@ -1,5 +1,5 @@
 # Professional README Generator
-https://img.shields.io/badge/license-Apache%20License%202.0-brightgreen
+![license](https://img.shields.io/badge/license-Apache%20License%202.0-brightgreen)
 
 ## Table of Contents
  * [Description](#Description)
