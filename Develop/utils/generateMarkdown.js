@@ -113,6 +113,16 @@ function renderScreenshotSection(screenshot) {
   }
 }
 
+function renderTestsSection(tests) {
+  if (tests) {
+    return `
+## Tests
+${tests})`;
+  } else {
+    return "";
+  }
+}
+
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(readMeData) {
   const {
@@ -124,6 +134,7 @@ function generateMarkdown(readMeData) {
     installation,
     usage,
     contribution,
+    tests,
     license,
     githubUsername,
     email,
@@ -139,6 +150,7 @@ ${renderScreenshotSection(screenshot)}
 ${renderInstallationSection(installation)}
 ${renderUsageSection(usage)}
 ${renderContributionSection(contribution)}
+${renderTestsSection(tests)}
 ${renderLicenseSection(license)}
 ${renderLicenseLink(license)}
 
