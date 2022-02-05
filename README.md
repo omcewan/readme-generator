@@ -28,7 +28,7 @@ To use this application you will “cd” into the directory where the index.js 
 To contribute to this application please for the application from the GitHub repository above, where you can work on the changes you would like to implement and then submit a pull request. 
 
 ## Tests
-No test were done in the process of making this application. Please check back in the future for any tests that will be implemented. )
+No test were done in the process of making this application. Please check back in the future for any tests that will be implemented.
 
 ## License
 This application is covered under the Apache License 2.0.
