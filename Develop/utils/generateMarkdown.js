@@ -5,27 +5,27 @@ const ListPrompt = require("inquirer/lib/prompts/list");
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
   if (license) {
-
   }
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
+  console.log(license);
   if (license == "Apache License 2.0") {
-    return "For more details about licensing,use this link: https://choosealicense.com/licenses/apache-2.0/"
+    return "For more details about licensing,use this link: https://choosealicense.com/licenses/apache-2.0/";
   }
   if (license == "GNU GPLv3") {
-    return "For more details about licensing,use this link: https://choosealicense.com/licenses/gpl-3.0/"
+    return "For more details about licensing,use this link: https://choosealicense.com/licenses/gpl-3.0/";
   }
   if (license == "MIT") {
-    return "For more details about licensing,use this link: https://choosealicense.com/licenses/mit/"
+    return "For more details about licensing,use this link: https://choosealicense.com/licenses/mit/";
   }
   if (license == "ISC License") {
-    return "For more details about licensing,use this link: https://choosealicense.com/licenses/isc/"
+    return "For more details about licensing,use this link: https://choosealicense.com/licenses/isc/";
   }
   if (!license) {
-    return ''
+    return "";
   }
 }
 
@@ -37,81 +37,71 @@ function renderLicenseSection(license) {
 ## License
 This application is covered under the ${license}`;
   } else {
-    return ''
+    return "";
   }
 }
 
-let optionalSections = {
-  contribution(contribution) {
-    if (contribution) {
-      return `
-## How To Contribute
-${contribution}`;
-    } else {
-      return ''
-    }
-  },
-
-  languages(languages) {
-    if (languages) {
-      return `
+function renderLanguageSection(languages) {
+  if (languages) {
+    return `
 ## Built With
  * ${languages.join("\n * ")}`;
-    } else {
-      return ''
-    }
-  },
+  } else {
+    return "";
+  }
+}
 
-  table(tableOfContents) {
-    if (tableOfContents) {
-      return `
+function renderTableSection(tableOfContents) {
+  if (tableOfContents) {
+    return `
 ## Table of Contents
  * ${tableOfContents
    .map((element) => `[${element}](#${element})`)
    .join("\n * ")}`;
-    } else {
-      return ''
-    }
-  },
+  } else {
+    return "";
+  }
+}
 
-  installation(installation) {
-    if (installation) {
-      return `
+function renderInstallationSection(installation) {
+  if (installation) {
+    return `
 ## Installation
 ${installation}`;
-    } else {
-      return ''
-    }
-  },
+  } else {
+    return "";
+  }
+}
 
-  usage(usage) {
-    if (usage) {
-      return `
+function renderUsageSection(usage) {
+  if (usage) {
+    return `
 ## Usage
 ${usage}`;
-    } else {
-      return ''
-    }
-  },
+  } else {
+    return "";
+  }
+}
 
-  contribution(contribution) {
-    if (contribution) {
-      return `
+function renderContributionSection(contribution) {
+  if (contribution) {
+    return `
 ## Contribution
 ${contribution}`;
-    } else {
-      return ''
-    }
-  },
-
-  screenshot(screenshot) {
-    if (screenshot) {
-      return `
-## ScreenShot
-![This is a screenshot](${screenshot})`
-    }
+  } else {
+    return "";
   }
-};
+}
+
+function renderScreenshotSection(screenshot) {
+  if (screenshot) {
+    return `
+## ScreenShot
+![This is a screenshot](${screenshot})`;
+  } else {
+    return "";
+  }
+}
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(readMeData) {
@@ -129,15 +119,15 @@ function generateMarkdown(readMeData) {
     email,
   } = readMeData;
   return `# ${title}
-${optionalSections.table(tableOfContents)}
+${renderTableSection(tableOfContents)}
 
 ## Description
 ${description}
-${optionalSections.languages(languages)}
-${optionalSections.screenshot(screenshot)}
-${optionalSections.installation(installation)}
-${optionalSections.usage(usage)}
-${optionalSections.contribution(contribution)}
+${renderLanguageSection(languages)}
+${renderScreenshotSection(screenshot)}
+${renderInstallationSection(installation)}
+${renderUsageSection(usage)}
+${renderContributionSection(contribution)}
 ${renderLicenseSection(license)}
 ${renderLicenseLink(license)}
 
