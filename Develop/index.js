@@ -13,9 +13,7 @@ const questions = [
       if (projectName) {
         return true;
       } else {
-        console.log(
-          "Please enter a name for your application!(Required)"
-        );
+        console.log("Please enter a name for your application!(Required)");
         return false;
       }
     },
@@ -60,9 +58,7 @@ const questions = [
       if (descriptionInput) {
         return true;
       } else {
-        console.log(
-          "Please enter a basic description for your application!"
-        );
+        console.log("Please enter a basic description for your application!");
         return false;
       }
     },
@@ -79,7 +75,8 @@ const questions = [
   {
     type: "checkbox",
     name: "languages",
-    message: "What did you use to build this application? (Check all that apply)",
+    message:
+      "What did you use to build this application? (Check all that apply)",
     choices: [
       "JavaScript",
       "HTML",
@@ -101,9 +98,8 @@ const questions = [
   {
     type: "confirm",
     name: "confirmImage",
-    message:
-      "Would you like to include an image of the application?",
-    default: false, 
+    message: "Would you like to include an image of the application?",
+    default: false,
   },
 
   {
@@ -192,11 +188,11 @@ const questions = [
 
   {
     type: "checkbox",
-    name: "license",
+    name: "tests",
     message: "Please choose a license for the porject",
     choices: [],
-    when: ({ confirmLicense }) => {
-      if (confirmLicense) {
+    when: ({ confirmTests }) => {
+      if (confirmTests) {
         return true;
       } else {
         return false;
@@ -216,7 +212,7 @@ const questions = [
     type: "checkbox",
     name: "license",
     message: "Please choose a license for the porject",
-    choices: [],
+    choices: ["Apache License 2.0", "GNU GPLv3", "MIT", "ISC License"],
     when: ({ confirmLicense }) => {
       if (confirmLicense) {
         return true;

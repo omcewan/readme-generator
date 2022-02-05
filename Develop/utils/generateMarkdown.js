@@ -1,14 +1,45 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
+
+const ListPrompt = require("inquirer/lib/prompts/list");
+
 // If there is no license, return an empty string
-function renderLicenseBadge(license) {}
+function renderLicenseBadge(license) {
+  if (license) {
+
+  }
+}
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
-function renderLicenseLink(license) {}
+function renderLicenseLink(license) {
+  if (license == "Apache License 2.0") {
+    return "For more details about licensing,use this link: https://choosealicense.com/licenses/apache-2.0/"
+  }
+  if (license == "GNU GPLv3") {
+    return "For more details about licensing,use this link: https://choosealicense.com/licenses/gpl-3.0/"
+  }
+  if (license == "MIT") {
+    return "For more details about licensing,use this link: https://choosealicense.com/licenses/mit/"
+  }
+  if (license == "ISC License") {
+    return "For more details about licensing,use this link: https://choosealicense.com/licenses/isc/"
+  }
+  if (!license) {
+    return ''
+  }
+}
 
 // TODO: Create a function that returns the license section of README
 // If there is no license, return an empty string
-function renderLicenseSection(license) {}
+function renderLicenseSection(license) {
+  if (license) {
+    return `
+## License
+This application is covered under the ${license}`;
+  } else {
+    return ''
+  }
+}
 
 let optionalSections = {
   contribution(contribution) {
@@ -63,16 +94,6 @@ ${usage}`;
     }
   },
 
-  license(license) {
-    if (license) {
-      return `
-## License
-${license}`;
-    } else {
-      return ''
-    }
-  },
-
   contribution(contribution) {
     if (contribution) {
       return `
@@ -117,7 +138,8 @@ ${optionalSections.screenshot(screenshot)}
 ${optionalSections.installation(installation)}
 ${optionalSections.usage(usage)}
 ${optionalSections.contribution(contribution)}
-${optionalSections.license(license)}
+${renderLicenseSection(license)}
+${renderLicenseLink(license)}
 
 ## Questions
 For additional information about the project, please find it at the following www.github.com/${githubUsername}.
