@@ -14,11 +14,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ## Built With
  * JavaScript
- * HTML
- * CSS
- * ES6
- * jQuery
- * Bootstrap
  * Node
 
 ## ScreenShot
@@ -36,4 +31,4 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ## Questions
 For additional information about the project, please find it at the following www.github.com/omcewan.
-Also if you have additional questions please contact me at omcewan231@gmail.com.
+Also if you have additional questions please contact me at omcewan18@gmail.com.
