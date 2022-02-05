@@ -1,28 +1,38 @@
 // TODO: Create a function that returns a license badge based on which license is passed in
 
-const ListPrompt = require("inquirer/lib/prompts/list");
-
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
-  if (license) {
+  if (license == "Apache License 2.0") {
+    return "https://img.shields.io/badge/license-Apache%20License%202.0-brightgreen";
+  }
+  if (license == "GNU GPLv3") {
+    return "https://img.shields.io/badge/license-GNU%20GPLv3-yellowgreen";
+  }
+  if (license == "MIT") {
+    return "https://img.shields.io/badge/license-MIT-blue";
+  }
+  if (license == "ISC License") {
+    return "https://img.shields.io/badge/license-ISC%20License-red";
+  }
+  if (!license) {
+    return "";
   }
 }
 
 // TODO: Create a function that returns the license link
 // If there is no license, return an empty string
 function renderLicenseLink(license) {
-  console.log(license);
   if (license == "Apache License 2.0") {
-    return "For more details about licensing,use this link: https://choosealicense.com/licenses/apache-2.0/";
+    return "For more details about licensing, use this link: https://choosealicense.com/licenses/apache-2.0/.";
   }
   if (license == "GNU GPLv3") {
-    return "For more details about licensing,use this link: https://choosealicense.com/licenses/gpl-3.0/";
+    return "For more details about licensing, use this link: https://choosealicense.com/licenses/gpl-3.0/.";
   }
   if (license == "MIT") {
-    return "For more details about licensing,use this link: https://choosealicense.com/licenses/mit/";
+    return "For more details about licensing, use this link: https://choosealicense.com/licenses/mit/.";
   }
   if (license == "ISC License") {
-    return "For more details about licensing,use this link: https://choosealicense.com/licenses/isc/";
+    return "For more details about licensing, use this link: https://choosealicense.com/licenses/isc/.";
   }
   if (!license) {
     return "";
@@ -35,7 +45,7 @@ function renderLicenseSection(license) {
   if (license) {
     return `
 ## License
-This application is covered under the ${license}`;
+This application is covered under the ${license}.`;
   } else {
     return "";
   }
@@ -119,6 +129,7 @@ function generateMarkdown(readMeData) {
     email,
   } = readMeData;
   return `# ${title}
+${renderLicenseBadge(license)}
 ${renderTableSection(tableOfContents)}
 
 ## Description
