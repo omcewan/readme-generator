@@ -117,7 +117,7 @@ function renderTestsSection(tests) {
   if (tests) {
     return `
 ## Tests
-${tests})`;
+${tests}`;
   } else {
     return "";
   }
