@@ -11,7 +11,7 @@
  * [Questions](#Questions)
 
 ## Description
-This application is a professional README.md generator that is used to generate a README.md file for your projects and thus allowing you to focus on the more important thing, bringing your application to life. It is simple, straight forward and easy to use. 
+This application is a professional README.md generator that is used to generate a README.md file for your projects and thus allowing you to focus on the more important thing, bringing your application to life. It is simple, straight forward and easy to use. Also here is a link to a viedo walkthrough demoing how the application functions, https://watch.screencastify.com/v/1irNDTerg6bxHYb50MMX. 
 
 ## Built With
  * JavaScript
